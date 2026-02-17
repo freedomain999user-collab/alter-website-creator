@@ -3,93 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Code ID</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 350px;
-        }
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .hints {
-            margin-top: 20px;
-            text-align: left;
-            width: 100%;
-        }
-        .hint-item {
-            background-color: #e9ecef;
-            padding: 8px;
-            margin-bottom: 5px;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #333;
-            border-left: 4px solid #007bff;
-        }
-    </style>
+    <title>Alter Website Creator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h3>Search Code ID</h3>
-        <input type="text" id="searchInput" placeholder="Enter Name or ID...">
-        <button onclick="addHistory()">Search</button>
+    <header>
+        <div class="logo">Alter Website Creator</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
-        <div class="hints" id="hintList"></div>
-    </div>
-
-    <script>
-        function addHistory() {
-            var inputVal = document.getElementById("searchInput").value;
+    <section class="hero">
+        <div class="content">
+            <h1>Build Your Future Website</h1>
+            <p>The ultimate tool to design and deploy in seconds.</p>
             
-            if (inputVal.trim() !== "") {
-                // Create a new div for the history item
-                var node = document.createElement("div");
-                node.className = "hint-item";
-                node.textContent = "History: " + inputVal;
-                
-                // Add it to the top of the list
-                var list = document.getElementById("hintList");
-                list.prepend(node);
-                
-                // Clear the input box
-                document.getElementById("searchInput").value = "";
-            } else {
-                alert("Please enter a name first!");
-            }
-        }
-    </script>
+            <button class="generate-btn">Generate</button>
+        </div>
+
+        <div class="domain-extensions">
+            <span class="ext">.com</span>
+            <span class="ext">.net</span>
+            <span class="ext">.ai</span>
+            <span class="ext">.io</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Alter Website Creator. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
