@@ -28,24 +28,28 @@ nav a {
     color: white;
 }
 
+/* --- यहाँ से बदलाव शुरू (बार को खिसकाने के लिए) --- */
 .search-box-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    /* बार को ऊपर-नीचे खिसकाने के लिए इस नंबर को बदलो (मैंने 20px से 60px कर दिया है) */
+    margin-top: 60px; 
 }
 
+/* --- बार को बड़ा करने के लिए बदलाव --- */
 .big-search-bar {
-    padding: 15px;
-    width: 50%;
-    max-width: 500px;
-    font-size: 18px;
+    padding: 20px;       /* मोटाई बढ़ाई है (पहले 15px थी) */
+    width: 70%;          /* चौड़ाई बढ़ाई है (पहले 50% थी) */
+    max-width: 800px;    /* अधिकतम चौड़ाई बढ़ाई है (पहले 500px थी) */
+    font-size: 22px;     /* अंदर का टेक्स्ट बड़ा किया है (पहले 18px था) */
     border: none;
     border-radius: 5px 0 0 5px;
 }
 
+/* --- बटन को भी बार के हिसाब से बड़ा किया है --- */
 .generate-btn {
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px 40px;  /* बटन की मोटाई बढ़ाई है (पहले 15px 30px थी) */
+    font-size: 22px;     /* बटन का टेक्स्ट बड़ा किया है (पहले 18px था) */
     border: none;
     border-radius: 0 5px 5px 0;
     background-color: #ff4500;
