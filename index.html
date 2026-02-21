@@ -15,8 +15,7 @@
             <a href="#">Service</a>
             <a href="#">Explore</a>
             <a href="#">Support</a>
-            <a href="#">Home</a>
-        </nav>
+            </nav>
     </header>
 
     <section class="hero">
@@ -24,23 +23,19 @@
             <h1>Build Your Future Website</h1>
             <p>The ultimate tool to design and deploy in seconds.</p>
             
-            <div class="search-container">
-                <input type="text" id="domain-name" placeholder="Enter your website name">
-                <button class="generate-btn" onclick="validateDomain()">Generate</button>
+            <div class="search-box-container">
+                <input type="text" id="domain-input" class="big-search-bar" placeholder="Enter your website name here...">
+                <button id="generate-btn" class="generate-btn">Generate</button>
             </div>
         </div>
 
-        <div class="domain-extensions" id="domain-extensions">
-            <span class="ext" id="ext-com">.com</span>
-            <span class="ext" id="ext-net">.net</span>
-            <span class="ext" id="ext-ai">.ai</span>
-            <span class="ext" id="ext-io">.io</span>
+        <div class="domain-extensions">
+            <span class="ext" data-ext=".com">.com</span>
+            <span class="ext" data-ext=".net">.net</span>
+            <span class="ext" data-ext=".ai">.ai</span>
+            <span class="ext" data-ext=".io">.io</span>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Alter Website Creator. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
