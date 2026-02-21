@@ -11,9 +11,11 @@
     <header>
         <div class="logo">Alter Website Creator</div>
         <nav>
+            <a href="#">Pricing</a>
+            <a href="#">Service</a>
+            <a href="#">Explore</a>
+            <a href="#">Support</a>
             <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Contact</a>
         </nav>
     </header>
 
@@ -22,14 +24,17 @@
             <h1>Build Your Future Website</h1>
             <p>The ultimate tool to design and deploy in seconds.</p>
             
-            <button class="generate-btn">Generate</button>
+            <div class="search-container">
+                <input type="text" id="domain-name" placeholder="Enter your website name">
+                <button class="generate-btn" onclick="validateDomain()">Generate</button>
+            </div>
         </div>
 
-        <div class="domain-extensions">
-            <span class="ext">.com</span>
-            <span class="ext">.net</span>
-            <span class="ext">.ai</span>
-            <span class="ext">.io</span>
+        <div class="domain-extensions" id="domain-extensions">
+            <span class="ext" id="ext-com">.com</span>
+            <span class="ext" id="ext-net">.net</span>
+            <span class="ext" id="ext-ai">.ai</span>
+            <span class="ext" id="ext-io">.io</span>
         </div>
     </section>
 
@@ -37,5 +42,6 @@
         <p>&copy; 2026 Alter Website Creator. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
