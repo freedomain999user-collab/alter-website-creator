@@ -31,20 +31,20 @@ nav a {
 .search-box-container {
     display: flex;
     justify-content: center;
-    margin-top: 40px; /* इसे 20px से बढ़ाकर 40px किया है ताकि थोड़ा नीचे खिसके */
+    margin-top: 40px; /* Increased from 20px to 40px to push it down slightly */
 }
 
 .big-search-bar {
-    padding: 20px;       /* मोटाई बढ़ाने के लिए */
-    width: 60%;          /* चौड़ाई बढ़ाने के लिए */
-    max-width: 700px;    /* ज़्यादा से ज़्यादा चौड़ाई */
-    font-size: 20px;     /* टेक्स्ट का साइज */
+    padding: 20px;       /* To increase the height/thickness */
+    width: 60%;          /* To increase the width */
+    max-width: 700px;    /* Maximum width */
+    font-size: 20px;     /* Text size */
     border: none;
     border-radius: 5px 0 0 5px;
 }
 
 .generate-btn {
-    padding: 20px 35px;  /* बटन भी सर्च बार के बराबर मोटा */
+    padding: 20px 35px;  /* Button height matches the search bar */
     font-size: 20px;
     border: none;
     border-radius: 0 5px 5px 0;
