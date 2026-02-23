@@ -2,12 +2,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const domainInput = document.getElementById("domain-input");
     const generateBtn = document.getElementById("generate-btn");
     const extensions = document.querySelectorAll(".ext");
+    
+    // Modal Elements
+    const modal = document.getElementById("domain-modal");
+    const closeModal = document.getElementById("close-modal");
 
-    // 1. टाइप करते वक्त स्पेस चेक करना
+    // 1. Check for spaces while typing
     domainInput.addEventListener("input", function() {
         let text = domainInput.value;
 
-        // अगर नाम के बीच में स्पेस है
+        // If there is a space in the name
         if (text.includes(" ")) {
             domainInput.style.border = "2px solid red";
             domainInput.style.color = "red";
@@ -15,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
             generateBtn.style.opacity = "0.5";
             generateBtn.style.cursor = "not-allowed";
         } else {
-            // स्पेस नहीं है तो सब नॉर्मल रखो
+            // No space, keep it normal
             domainInput.style.border = "";
             domainInput.style.color = "";
             
@@ -27,37 +31,63 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 2. .com, .net पर क्लिक करने पर उसे इनपुट में जोड़ना
+    // 2. Add extension to input on click
     extensions.forEach(function(extElement) {
         extElement.addEventListener("click", function(event) {
-            // closest('.ext') पक्का करेगा कि क्लिक सही जगह रजिस्टर हो
+            // Ensure click registers correctly
             let targetBox = event.target.closest('.ext');
             if (!targetBox) return;
 
-            let ext = targetBox.getAttribute("data-ext"); // जैसे .com
-            let currentText = domainInput.value.trim(); // फालतू स्पेस हटा देगा
+            let ext = targetBox.getAttribute("data-ext"); // e.g. .com
+            let currentText = domainInput.value.trim(); // Remove extra spaces
 
-            // अगर बॉक्स खाली है, तो अलर्ट देगा
+            // If input is empty, alert user
             if (currentText === "") {
-                alert("Please enter a website name first! (पहले कोई नाम डालो)");
+                alert("Please enter a website name first!");
                 return;
             }
 
-            // अगर स्पेस है, तो पहले स्पेस हटाओ फिर एक्सटेंशन लगाओ
+            // Remove spaces before adding extension
             if (currentText.includes(" ")) {
-                currentText = currentText.replace(/\s+/g, ''); // सारे स्पेस गायब
+                currentText = currentText.replace(/\s+/g, ''); // Remove all spaces
             }
 
-            // अगर पहले से कोई एक्सटेंशन लगा है (.com), तो उसे हटाकर नया लगाएगा
+            // Replace existing extension if any, and append the new one
             let baseName = currentText.split(".")[0];
             domainInput.value = baseName + ext;
 
-            // जुड़ने के बाद बॉक्स को वापस नॉर्मल कर देगा (ताकि रेड न रहे)
+            // Reset input styles after adding extension
             domainInput.style.border = "";
             domainInput.style.color = "";
             generateBtn.disabled = false;
             generateBtn.style.opacity = "1";
             generateBtn.style.cursor = "pointer";
         });
+    });
+
+    // 3. Show Popup Modal when Generate button is clicked
+    generateBtn.addEventListener("click", function(event) {
+        event.preventDefault(); // Stop page from refreshing
+        
+        let currentText = domainInput.value.trim();
+        if (currentText === "") {
+            alert("Please enter a domain name first!");
+            return;
+        }
+
+        // Display the modal
+        modal.style.display = "flex";
+    });
+
+    // 4. Close Popup when "X" is clicked
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    // 5. Close Popup when clicking outside the box
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
     });
 });
