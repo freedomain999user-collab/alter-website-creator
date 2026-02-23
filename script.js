@@ -91,3 +91,39 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+const proceedBtn = document.getElementById("proceed-btn");
+    
+proceedBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    let finalDomain = document.getElementById("domain-input").value.trim();
+
+    var options = {
+        "key": "rzp_test_YOUR_DUMMY_KEY", 
+        "amount": "19900", 
+        "currency": "INR",
+        "name": "Alter Website Creator",
+        "description": finalDomain + " Domain Purchase",
+        "image": "https://dummyimage.com/100x100/000/fff&text=A", 
+        "handler": function (response) {
+            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+            document.getElementById("domain-modal").style.display = "none"; 
+        },
+        "prefill": {
+            "name": "",
+            "email": "",
+            "contact": ""
+        },
+        "theme": {
+            "color": "#28a745" 
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    
+    rzp1.on('payment.failed', function (response){
+        alert("Payment Failed: " + response.error.description);
+    });
+
+    rzp1.open();
+});
