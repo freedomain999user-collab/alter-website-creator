@@ -96,11 +96,23 @@ nav a {
     margin-left: 15px;
 }
 
+/* Hero Section - Better Background */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background-color: #0056b3;
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Attractive blue gradient */
     color: white;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
+}
+
+/* "Build Your Website" Text Styling */
+.hero h1 {
+    font-size: 65px; /* To make the text much bigger */
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4); /* Shadow to make the text pop */
+    letter-spacing: 2px;
+}
 }
 
 .search-box-container {
