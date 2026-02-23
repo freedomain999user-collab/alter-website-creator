@@ -99,7 +99,7 @@ proceedBtn.addEventListener("click", function(e) {
     let finalDomain = document.getElementById("domain-input").value.trim();
 
     var options = {
-        "key": "rzp_test_YOUR_DUMMY_KEY", 
+        "key": "BCR2DN5TR33OF5QS", 
         "amount": "19900", 
         "currency": "INR",
         "name": "Alter Website Creator",
