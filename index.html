@@ -6,6 +6,165 @@
     <title>Alter Website Creator</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <style>
+        .pricing-section {
+            padding: 80px 20px;
+            background-color: #f4f5f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .pricing-section h2 {
+            font-size: 36px;
+            color: #111;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .pricing-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .premium-card {
+            border: 2px solid #673ab7;
+            box-shadow: 0 15px 40px rgba(103, 58, 183, 0.15);
+        }
+
+        .popular-badge {
+            background-color: #673ab7;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .plan-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .price-section {
+            margin-bottom: 20px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 16px;
+            margin-right: 5px;
+        }
+
+        .new-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #111;
+        }
+
+        .currency {
+            font-size: 20px;
+            vertical-align: top;
+        }
+
+        .plan-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+            min-height: 40px;
+        }
+
+        .continue-btn {
+            background-color: #673ab7;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-btn:hover {
+            background-color: #512da8;
+        }
+
+        .developer-btn {
+            background-color: #111;
+        }
+        
+        .developer-btn:hover {
+            background-color: #333;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .check-icon {
+            color: #00c853;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .cross-icon {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        /* Smooth scroll for the navbar link */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,7 +180,7 @@
 <header>
     <div class="logo">Alter Website Creator</div>
 <nav>
-    <a href="#">Pricing</a>
+    <a href="#pricing">Pricing</a>
     
     <div class="dropdown">
         <button class="dropbtn">Service ▾</button>
@@ -148,6 +307,29 @@
     </div>
 </section>
 
-<script src="script.js"></script>
-</body>
-</html>
+<section id="pricing" class="pricing-section">
+    <h2>Choose Your Plan</h2>
+    <div class="pricing-container">
+
+        <div class="pricing-card">
+            <div class="plan-title">Pro Plan</div>
+            <div class="plan-description">Best for beginners starting out with basic websites.</div>
+            <div class="price-section">
+                <span class="old-price">₹799</span>
+                <span class="currency">₹</span><span class="new-price">150</span>
+            </div>
+            <button class="continue-btn" onclick="triggerRazorpay('Pro', 150)">Continue</button>
+            <ul class="features-list">
+                <li><span class="check-icon">✓</span> Create up to 10 Websites</li>
+                <li><span class="check-icon">✓</span> 50 GB SSD Storage</li>
+                <li><span class="check-icon">✓</span> Free SSL Certificate</li>
+                <li><span class="check-icon">✓</span> Basic Website Templates</li>
+                <li><span class="check-icon">✓</span> Standard Support</li>
+                <li><span class="cross-icon">✕</span> Managed Node.js</li>
+                <li><span class="cross-icon">✕</span> API & Webhooks Access</li>
+            </ul>
+        </div>
+
+        <div class="pricing-card premium-card">
+            <div class="popular-badge">MOST POPULAR</div>
+            <div class="plan
