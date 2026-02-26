@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alter Website Creator</title>
     <link rel="stylesheet" href="style.css">
-</head>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
 <body>
+
 <div id="domain-modal" class="modal-overlay">
     <div class="modal-content">
         <span id="close-modal" class="close-btn">&times;</span>
@@ -16,36 +17,120 @@
         <button id="proceed-btn" class="action-btn">Proceed</button>
     </div>
 </div>
-    <header>
-        <div class="logo">Alter Website Creator</div>
-        <nav>
-            <a href="#">Pricing</a>
-            <a href="#">Service</a>
-            <a href="#">Explore</a>
-            <a href="#">Support</a>
-            </nav>
-    </header>
 
-    <section class="hero">
-        <div class="content">
-            <h1>Build Your Future Website</h1>
-            <p>The ultimate tool to design and deploy in seconds.</p>
-            
-            <div class="search-box-container">
-                <input type="text" id="domain-input" class="big-search-bar" placeholder="Enter your website name here...">
-                <button id="generate-btn" class="generate-btn">Generate</button>
+<header>
+    <div class="logo">Alter Website Creator</div>
+    <nav>
+        <a href="#">Pricing</a>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Service ▾</button>
+            <div class="dropdown-content mega-menu">
+              
+              <div class="menu-column">
+                <h4>HOSTING</h4>
+                
+                <a href="woocommerce-hosting.html" class="menu-item">
+                  <span class="icon">🛒</span>
+                  <div class="item-text">
+                    <h5>Managed hosting for WooCommerce</h5>
+                    <p>Build and grow an ecommerce website</p>
+                  </div>
+                </a>
+                
+                <a href="web-hosting.html" class="menu-item">
+                  <span class="icon">💻</span>
+                  <div class="item-text">
+                    <h5>Web hosting</h5>
+                    <p>Secure, speedy, reliable services</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="menu-column">
+                <h4>WEBSITES</h4>
+                
+                <a href="website-builder.html" class="menu-item">
+                  <span class="icon">🔳</span>
+                  <div class="item-text">
+                    <h5>Website Builder <span class="badge ai">AI</span></h5>
+                    <p>Create a website in 3 easy steps</p>
+                  </div>
+                </a>
+                
+                <a href="ecommerce-builder.html" class="menu-item">
+                  <span class="icon">🛍️</span>
+                  <div class="item-text">
+                    <h5>Ecommerce Website Builder <span class="badge ai">AI</span></h5>
+                    <p>Get straight to business with an online store</p>
+                  </div>
+                </a>
+                
+                <a href="horizons.html" class="menu-item">
+                  <span class="icon">⚡</span>
+                  <div class="item-text">
+                    <h5>Horizons <span class="badge ai">AI</span></h5>
+                    <p>Launch a no-code site or web app with AI</p>
+                  </div>
+                </a>
+              </div>
+        
+              <div class="menu-column">
+                <h4>DOMAINS</h4>
+                
+                <a href="domain-search.html" class="menu-item">
+                  <span class="icon">🌐</span>
+                  <div class="item-text">
+                    <h5>Domain name search</h5>
+                    <p>Find and register your website address</p>
+                  </div>
+                </a>
+                
+                <a href="domain-transfer.html" class="menu-item">
+                  <span class="icon">⇆</span>
+                  <div class="item-text">
+                    <h5>Domain transfer</h5>
+                    <p>Transfer a domain fast and securely</p>
+                  </div>
+                </a>
+                
+                <h4 style="margin-top: 25px;">EMAIL</h4>
+                <a href="email-marketing.html" class="menu-item">
+                  <span class="icon">✉️</span>
+                  <div class="item-text">
+                    <h5>Email marketing with Hostinger Reach <span class="badge pro">PRO</span></h5>
+                    <p>Reach your audience effectively</p>
+                  </div>
+                </a>
+              </div>
+        
             </div>
         </div>
+        <a href="#">Explore</a>
+        <a href="#">Support</a>
+    </nav>
+</header>
 
-        <div class="domain-extensions">
-            <span class="ext" data-ext=".com">.com <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹199</span> </span>
-            <span class="ext" data-ext=".net">.net <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-            <span class="ext" data-ext=".ai">.ai <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-            <span class="ext" data-ext=".io">.io <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-            <spen class="ext" data-ext=".org">.org <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </spen>
+<section class="hero">
+    <div class="content">
+        <h1>Build Your Future Website</h1>
+        <p>The ultimate tool to design and deploy in seconds.</p>
+        
+        <div class="search-box-container">
+            <input type="text" id="domain-input" class="big-search-bar" placeholder="Enter your website name here...">
+            <button id="generate-btn" class="generate-btn">Generate</button>
         </div>
-    </section>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="domain-extensions">
+        <span class="ext" data-ext=".com">.com <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹199</span> </span>
+        <span class="ext" data-ext=".net">.net <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+        <span class="ext" data-ext=".ai">.ai <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+        <span class="ext" data-ext=".io">.io <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+        <span class="ext" data-ext=".org">.org <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
