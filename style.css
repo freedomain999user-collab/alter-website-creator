@@ -1,261 +1,76 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-    overflow-x: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alter Website Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
 
-.modal-overlay {
-    display: none; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); 
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-}
+<div id="domain-modal" class="modal-overlay">
+    <div class="modal-content">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <h2>Buy your domain first!</h2>
+        <p>Create your website in just 10 seconds.</p>
+        <button id="proceed-btn" class="action-btn">Proceed</button>
+    </div>
+</div>
 
-.modal-content {
-    background: linear-gradient(135deg, #ffffff, #f3f4f6);
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
-    max-width: 420px;
-    width: 90%;
-    animation: popIn 0.3s ease-out;
-}
+<header>
+    <div class="logo">Alter Website Creator</div>
+    <nav>
+        <a href="#">Pricing</a>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Service ▾</button>
+            <div class="dropdown-content mega-menu">
+              
+              <div class="menu-column">
+                <h4>HOSTING</h4>
+                <a href="#" class="menu-item">
+                  <span class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></span>
+                  <div class="item-text">
+                    <h5>Managed hosting for WooCommerce</h5>
+                    <p>Build and grow an ecommerce website</p>
+                    <span class="badge pro">PRO</span>
+                  </div>
+                </a>
+                <a href="#" class="menu-item">
+                  <span class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg></span>
+                  <div class="item-text">
+                    <h5>Web hosting</h5>
+                    <p>Secure, speedy, reliable services</p>
+                    <span class="badge pro">PRO</span>
+                  </div>
+                </a>
+              </div>
 
-@keyframes popIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.modal-content h2 {
-    margin-top: 0;
-    color: #111;
-    font-size: 26px;
-}
-
-.modal-content p {
-    color: #555;
-    margin-bottom: 30px;
-    font-size: 16px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #999;
-    transition: color 0.2s;
-}
-
-.close-btn:hover {
-    color: #ff4d4d;
-}
-
-.action-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.action-btn:hover {
-    background-color: #218838;
-}
-
-header {
-    background-color: #000;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 16px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.dropbtn {
-    background-color: transparent;
-    color: white; 
-    font-family: inherit;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    padding: 10px 0;
-}
-
-.dropdown-content.mega-menu {
-    display: none; 
-    position: absolute;
-    top: 100%; 
-    right: -150px; 
-    background-color: #ffffff; 
-    width: 850px; 
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
-    border-radius: 12px;
-    padding: 25px;
-    z-index: 9999;
-}
-
-.dropdown:hover .dropdown-content.mega-menu {
-    display: flex; 
-    gap: 30px;
-}
-
-.menu-column {
-    flex: 1;
-    text-align: left; 
-}
-
-.menu-column h4 {
-    color: #888;
-    font-size: 12px;
-    margin-top: 0;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-nav .menu-item {
-    display: flex;
-    align-items: flex-start;
-    text-decoration: none;
-    color: #333 !important; 
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background 0.2s;
-    margin-left: 0; 
-}
-
-nav .menu-item:hover {
-    background-color: #f4f5f7; 
-}
-
-.menu-item .icon {
-    font-size: 24px;
-    margin-right: 15px;
-}
-
-.item-text h5 {
-    margin: 0 0 5px 0;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    color: #111;
-}
-
-.item-text p {
-    margin: 0;
-    font-size: 13px;
-    color: #666;
-}
-
-.badge {
-    font-size: 10px;
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 8px;
-}
-
-.badge.pro {
-    background: linear-gradient(135deg, #ff9900, #ff5500);
-    color: white;
-    box-shadow: 0 2px 5px rgba(255, 100, 0, 0.3);
-}
-
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
-}
-
-.hero h1 {
-    font-size: 65px; 
-    font-weight: 900;
-    margin-bottom: 10px;
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4); 
-    letter-spacing: 2px;
-}
-
-.search-box-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px; 
-}
-
-.big-search-bar {
-    padding: 20px;       
-    width: 60%;          
-    max-width: 700px;    
-    font-size: 20px;     
-    border: none;
-    border-radius: 5px 0 0 5px;
-}
-
-.generate-btn {
-    padding: 20px 35px;  
-    font-size: 20px;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: #ff4500;
-    color: white;
-    cursor: pointer;
-}
-
-.generate-btn:hover {
-    background-color: #e03a00;
-}
-
-.domain-extensions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.ext {
-    background-color: white;
-    color: #0056b3;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #0056b3;
-}
+              <div class="menu-column">
+                <h4>WEBSITES</h4>
+                <a href="#" class="menu-item">
+                  <span class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 10h16M10 20V10"></path></svg></span>
+                  <div class="item-text">
+                    <h5>Website Builder</h5>
+                    <p>Create a website in 3 easy steps</p>
+                    <span class="badge pro">PRO</span>
+                  </div>
+                </a>
+                <a href="#" class="menu-item">
+                  <span class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg></span>
+                  <div class="item-text">
+                    <h5>Ecommerce Website Builder</h5>
+                    <p>Get straight to business with an online store</p>
+                    <span class="badge pro">PRO</span>
+                  </div>
+                </a>
+                <a href="#" class="menu-item">
+                  <span class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></span>
+                  <div class="item-text">
+                    <h5>Horizons</h5>
+                    <p>Launch a no-code site or web app</p>
+                    <span class="badge pro">PRO</span>
+                  </div>
+                </a>
+              </div>
