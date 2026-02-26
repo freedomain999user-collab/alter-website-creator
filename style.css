@@ -1,11 +1,18 @@
+/* =========================================
+   GLOBAL STYLES
+========================================= */
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
+    overflow-x: hidden; /* 🔥 यह फालतू की हॉरिजॉन्टल स्क्रॉलिंग को रोक देगा */
 }
-/* Popup Overlay - Hidden by default */
+
+/* =========================================
+   POPUP / MODAL (No changes here)
+========================================= */
 .modal-overlay {
     display: none; 
     position: fixed;
@@ -17,10 +24,9 @@ body {
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px); /* Background blur effect */
+    backdrop-filter: blur(5px);
 }
 
-/* Popup Box Content */
 .modal-content {
     background: linear-gradient(135deg, #ffffff, #f3f4f6);
     padding: 40px;
@@ -34,7 +40,6 @@ body {
     animation: popIn 0.3s ease-out;
 }
 
-/* Pop-in animation */
 @keyframes popIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -81,6 +86,10 @@ body {
 .action-btn:hover {
     background-color: #218838;
 }
+
+/* =========================================
+   HEADER & NAVIGATION
+========================================= */
 header {
     background-color: #000;
     color: white;
@@ -88,50 +97,166 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* 🔥 मेगा मेनू को हेडर के पास रखने के लिए */
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 15px;
+    margin-left: 20px;
+    font-size: 16px;
 }
 
-/* Hero Section - Better Background */
+/* =========================================
+   🔥 MEGA MENU CSS (FIXED & RESPONSIVE) 🔥
+========================================= */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white; 
+    font-family: inherit;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+/* छुपे हुए मेनू का डिज़ाइन - अब ब्लैक नहीं होगा और बाहर नहीं भागेगा */
+.dropdown-content.mega-menu {
+    display: none; /* 🔥 पहले इसे पूरी तरह छुपा दिया ताकि लेआउट खराब ना हो */
+    position: absolute;
+    top: 100%; /* बटन के ठीक नीचे */
+    right: -150px; /* स्क्रीन के बाहर जाने से रोकने के लिए राइट में सेट किया */
+    background-color: #ffffff; /* एकदम वाइट बैकग्राउंड */
+    width: 850px; /* फिक्स चौड़ाई */
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 25px;
+    z-index: 9999;
+}
+
+/* माउस ले जाने (Hover) पर क्या होगा */
+.dropdown:hover .dropdown-content.mega-menu {
+    display: flex; /* 🔥 जैसे ही माउस जाएगा, ये 3 कॉलम में खुल जाएगा */
+    gap: 30px;
+}
+
+/* मेनू के अंदर का डिज़ाइन */
+.menu-column {
+    flex: 1;
+    text-align: left; /* टेक्स्ट लेफ्ट में रहेगा */
+}
+
+.menu-column h4 {
+    color: #888;
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* मेनू के लिंक्स का डिज़ाइन (ताकि हेडर वाले वाइट कलर से अलग रहें) */
+nav .menu-item {
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    color: #333 !important; /* 🔥 टेक्स्ट ब्लैक रहेगा */
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    margin-left: 0; 
+}
+
+nav .menu-item:hover {
+    background-color: #f4f5f7; /* हल्का ग्रे होवर इफ़ेक्ट */
+}
+
+.menu-item .icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.item-text h5 {
+    margin: 0 0 5px 0;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    color: #111;
+}
+
+.item-text p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+/* Badges (AI & PRO) */
+.badge {
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.badge.ai {
+    background-color: #e6e6ff;
+    color: #4d4dff;
+}
+
+.badge.pro {
+    background: linear-gradient(135deg, #ff9900, #ff5500);
+    color: white;
+    box-shadow: 0 2px 5px rgba(255, 100, 0, 0.3);
+}
+
+/* =========================================
+   HERO SECTION & SEARCH BAR
+========================================= */
 .hero {
     text-align: center;
     padding: 120px 20px;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Attractive blue gradient */
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
     box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
 }
 
-/* "Build Your Website" Text Styling */
 .hero h1 {
-    font-size: 65px; /* To make the text much bigger */
+    font-size: 65px; 
     font-weight: 900;
     margin-bottom: 10px;
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4); /* Shadow to make the text pop */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4); 
     letter-spacing: 2px;
-}
 }
 
 .search-box-container {
     display: flex;
     justify-content: center;
-    margin-top: 40px; /* Increased from 20px to 40px to push it down slightly */
+    margin-top: 40px; 
 }
 
 .big-search-bar {
-    padding: 20px;       /* To increase the height/thickness */
-    width: 60%;          /* To increase the width */
-    max-width: 700px;    /* Maximum width */
-    font-size: 20px;     /* Text size */
+    padding: 20px;       
+    width: 60%;          
+    max-width: 700px;    
+    font-size: 20px;     
     border: none;
     border-radius: 5px 0 0 5px;
 }
 
 .generate-btn {
-    padding: 20px 35px;  /* Button height matches the search bar */
+    padding: 20px 35px;  
     font-size: 20px;
     border: none;
     border-radius: 0 5px 5px 0;
