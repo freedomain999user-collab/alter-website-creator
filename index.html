@@ -1,335 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alter Website Creator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
-    <style>
-        .pricing-section {
-            padding: 80px 20px;
-            background-color: #f4f5f7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .pricing-section h2 {
-            font-size: 36px;
-            color: #111;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .pricing-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            max-width: 1200px;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .pricing-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            width: 320px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            border: 1px solid #e0e0e0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .premium-card {
-            border: 2px solid #673ab7;
-            box-shadow: 0 15px 40px rgba(103, 58, 183, 0.15);
-        }
-
-        .popular-badge {
-            background-color: #673ab7;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .plan-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .price-section {
-            margin-bottom: 20px;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #888;
-            font-size: 16px;
-            margin-right: 5px;
-        }
-
-        .new-price {
-            font-size: 36px;
-            font-weight: 800;
-            color: #111;
-        }
-
-        .currency {
-            font-size: 20px;
-            vertical-align: top;
-        }
-
-        .plan-description {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 25px;
-            min-height: 40px;
-        }
-
-        .continue-btn {
-            background-color: #673ab7;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-bottom: 25px;
-            transition: background-color 0.3s ease;
-        }
-
-        .continue-btn:hover {
-            background-color: #512da8;
-        }
-
-        .developer-btn {
-            background-color: #111;
-        }
-        
-        .developer-btn:hover {
-            background-color: #333;
-        }
-
-        .features-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        .features-list li {
-            margin-bottom: 15px;
-            font-size: 14px;
-            color: #444;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .check-icon {
-            color: #00c853;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        .cross-icon {
-            color: #d32f2f;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        /* Smooth scroll for the navbar link */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alter Website Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
 
 <div id="domain-modal" class="modal-overlay">
-    <div class="modal-content">
-        <span id="close-modal" class="close-btn">&times;</span>
-        <h2>Buy your domain first!</h2>
-        <p>Create your website in just 10 seconds.</p>
-        <button id="proceed-btn" class="action-btn">Proceed</button>
-    </div>
+    <div class="modal-content">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <h2>Buy your domain first!</h2>
+        <p>Create your website in just 10 seconds.</p>
+        <button id="proceed-btn" class="action-btn">Proceed</button>
+    </div>
 </div>
 
 <header>
-    <div class="logo">Alter Website Creator</div>
+    <div class="logo">Alter Website Creator</div>
 <nav>
-    <a href="#pricing">Pricing</a>
-    
-    <div class="dropdown">
-        <button class="dropbtn">Service ▾</button>
-        <div class="dropdown-content mega-menu">
-          
-          <div class="menu-column">
-            <h4>HOSTING</h4>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Managed hosting for WooCommerce</h5>
-                <p>Build and grow an ecommerce website</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Web hosting</h5>
-                <p>Secure, speedy, reliable services</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-          </div>
+    <a href="#">Pricing</a>
+    
+    <div class="dropdown">
+        <button class="dropbtn">Service ▾</button>
+        <div class="dropdown-content mega-menu">
+          
+          <div class="menu-column">
+            <h4>HOSTING</h4>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Managed hosting for WooCommerce</h5>
+                <p>Build and grow an ecommerce website</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Web hosting</h5>
+                <p>Secure, speedy, reliable services</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+          </div>
 
-          <div class="menu-column">
-            <h4>WEBSITES</h4>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 10h16M10 20V10"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Website Builder</h5>
-                <p>Create a website in 3 easy steps</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Ecommerce Website Builder</h5>
-                <p>Get straight to business with an online store</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Horizons</h5>
-                <p>Launch a no-code site or web app</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-          </div>
-    
-          <div class="menu-column">
-            <h4>DOMAINS</h4>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Domain name search</h5>
-                <p>Find and register your website address</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Domain transfer</h5>
-                <p>Transfer a domain fast and securely</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-            <h4 style="margin-top: 25px;">EMAIL</h4>
-            <a href="#" class="menu-item">
-              <span class="icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              </span>
-              <div class="item-text">
-                <h5>Email marketing</h5>
-                <p>Reach your audience effectively</p>
-                <span class="badge pro">PRO</span>
-              </div>
-            </a>
-          </div>
-    
-        </div>
-    </div>
+          <div class="menu-column">
+            <h4>WEBSITES</h4>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 10h16M10 20V10"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Website Builder</h5>
+                <p>Create a website in 3 easy steps</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Ecommerce Website Builder</h5>
+                <p>Get straight to business with an online store</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Horizons</h5>
+                <p>Launch a no-code site or web app</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+          </div>
+    
+          <div class="menu-column">
+            <h4>DOMAINS</h4>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Domain name search</h5>
+                <p>Find and register your website address</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Domain transfer</h5>
+                <p>Transfer a domain fast and securely</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+            <h4 style="margin-top: 25px;">EMAIL</h4>
+            <a href="#" class="menu-item">
+              <span class="icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </span>
+              <div class="item-text">
+                <h5>Email marketing</h5>
+                <p>Reach your audience effectively</p>
+                <span class="badge pro">PRO</span>
+              </div>
+            </a>
+          </div>
+    
+        </div>
+    </div>
 
-    <a href="#">Explore</a>
-    <a href="#">Support</a>
+    <a href="#">Explore</a>
+    <a href="#">Support</a>
 </nav>
 </header>
 
 <section class="hero">
-    <div class="content">
-        <h1>Build Your Future Website</h1>
-        <p>The ultimate tool to design and deploy in seconds.</p>
-        
-        <div class="search-box-container">
-            <input type="text" id="domain-input" class="big-search-bar" placeholder="Enter your website name here...">
-            <button id="generate-btn" class="generate-btn">Generate</button>
-        </div>
-    </div>
+    <div class="content">
+        <h1>Build Your Future Website</h1>
+        <p>The ultimate tool to design and deploy in seconds.</p>
+        
+        <div class="search-box-container">
+            <input type="text" id="domain-input" class="big-search-bar" placeholder="Enter your website name here...">
+            <button id="generate-btn" class="generate-btn">Generate</button>
+        </div>
+    </div>
 
-    <div class="domain-extensions">
-        <span class="ext" data-ext=".com">.com <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹199</span> </span>
-        <span class="ext" data-ext=".net">.net <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-        <span class="ext" data-ext=".ai">.ai <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-        <span class="ext" data-ext=".io">.io <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-        <span class="ext" data-ext=".org">.org <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
-    </div>
+    <div class="domain-extensions">
+        <span class="ext" data-ext=".com">.com <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹199</span> </span>
+        <span class="ext" data-ext=".net">.net <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+        <span class="ext" data-ext=".ai">.ai <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+        <span class="ext" data-ext=".io">.io <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+        <span class="ext" data-ext=".org">.org <br><span style="font-size: 16px; color: #555; font-weight: normal;">₹50</span> </span>
+    </div>
 </section>
 
-<section id="pricing" class="pricing-section">
-    <h2>Choose Your Plan</h2>
-    <div class="pricing-container">
-
-        <div class="pricing-card">
-            <div class="plan-title">Pro Plan</div>
-            <div class="plan-description">Best for beginners starting out with basic websites.</div>
-            <div class="price-section">
-                <span class="old-price">₹799</span>
-                <span class="currency">₹</span><span class="new-price">150</span>
-            </div>
-            <button class="continue-btn" onclick="triggerRazorpay('Pro', 150)">Continue</button>
-            <ul class="features-list">
-                <li><span class="check-icon">✓</span> Create up to 10 Websites</li>
-                <li><span class="check-icon">✓</span> 50 GB SSD Storage</li>
-                <li><span class="check-icon">✓</span> Free SSL Certificate</li>
-                <li><span class="check-icon">✓</span> Basic Website Templates</li>
-                <li><span class="check-icon">✓</span> Standard Support</li>
-                <li><span class="cross-icon">✕</span> Managed Node.js</li>
-                <li><span class="cross-icon">✕</span> API & Webhooks Access</li>
-            </ul>
-        </div>
-
-        <div class="pricing-card premium-card">
-            <div class="popular-badge">MOST POPULAR</div>
-            <div class="plan
+<script src="script.js"></script>
+</body>
+</html>    sab english me rakhna
