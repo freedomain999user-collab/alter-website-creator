@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Plans</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f7;
+}
+
+.pricing-section{
+    padding:60px 20px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:320px;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    text-align:left;
+    position:relative;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.popular{
+    border:2px solid #6c3ad1;
+}
+
+.popular-tag{
+    position:absolute;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#6c3ad1;
+    color:white;
+    padding:6px 15px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+h2{
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:32px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:gray;
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    margin:15px 0;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn-purple{
+    background:#6c3ad1;
+    color:white;
+}
+
+.btn-black{
+    background:black;
+    color:white;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+ul li{
+    margin:10px 0;
+}
+
+.check{
+    color:green;
+    font-weight:bold;
+}
+
+.cross{
+    color:red;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="pricing-section">
+
+    <!-- Pro Plan -->
+    <div class="card">
+        <h2>Pro Plan</h2>
+        <p>Basic website बनाने की शुरुआत करने वालों के लिए</p>
+
+        <div class="old-price">₹799</div>
+        <div class="price">₹150</div>
+
+        <button class="btn-purple">Continue</button>
+
+        <ul>
+            <li><span class="check">✔</span> Create up to 10 Websites</li>
+            <li><span class="check">✔</span> 50 GB SSD Storage</li>
+            <li><span class="check">✔</span> Free SSL Certificate</li>
+            <li><span class="check">✔</span> Basic Website Templates</li>
+            <li><span class="check">✔</span> Standard Support</li>
+            <li><span class="cross">✖</span> Managed Node.js</li>
+            <li><span class="cross">✖</span> API & Webhooks Access</li>
+        </ul>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="card popular">
+        <div class="popular-tag">MOST POPULAR</div>
+        <h2>Premium Plan</h2>
+        <p>Professionals और Business के लिए perfect</p>
+
+        <div class="old-price">₹2000</div>
+        <div class="price">₹999</div>
+
+        <button class="btn-purple">Continue</button>
+
+        <ul>
+            <li><span class="check">✔</span> Create up to 100 Websites</li>
+            <li><span class="check">✔</span> 200 GB NVMe Storage</li>
+            <li><span class="check">✔</span> Free Domain (1 Year)</li>
+            <li><span class="check">✔</span> Premium Templates & UI Kits</li>
+            <li><span class="check">✔</span> Managed Node.js Support</li>
+            <li><span class="check">✔</span> Priority 24/7 Support</li>
+            <li><span class="cross">✖</span> Root Access</li>
+        </ul>
+    </div>
+
+    <!-- Developer Mode -->
+    <div class="card">
+        <h2>Developer Mode</h2>
+        <p>Developers के लिए full control और unlimited power</p>
+
+        <div class="old-price">₹25000</div>
+        <div class="price">₹15000</div>
+
+        <button class="btn-black">Continue</button>
+
+        <ul>
+            <li><span class="check">✔</span> Unlimited Websites</li>
+            <li><span class="check">✔</span> Unlimited NVMe Storage</li>
+            <li><span class="check">✔</span> Dedicated IP Address</li>
+            <li><span class="check">✔</span> Full API & Webhooks Access</li>
+            <li><span class="check">✔</span> Unmanaged Root Access</li>
+            <li><span class="check">✔</span> Sandbox Environment</li>
+            <li><span class="check">✔</span> Dedicated Tech Manager</li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>
