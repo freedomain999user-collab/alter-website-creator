@@ -259,3 +259,99 @@ nav .menu-item:hover {
     cursor: pointer;
     border: 1px solid #0056b3;
 }
+/* ================= PRICING PAGE CSS ================= */
+
+.pricing-section{
+    padding:60px 20px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:320px;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    text-align:left;
+    position:relative;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.popular{
+    border:2px solid #6c3ad1;
+}
+
+.popular-tag{
+    position:absolute;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#6c3ad1;
+    color:white;
+    padding:6px 15px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:32px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:gray;
+    font-size:14px;
+}
+
+.card button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    margin:15px 0;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn-purple{
+    background:#6c3ad1;
+    color:white;
+}
+
+.btn-black{
+    background:black;
+    color:white;
+}
+
+.card ul{
+    list-style:none;
+    padding:0;
+}
+
+.card ul li{
+    margin:10px 0;
+}
+
+.check{
+    color:green;
+    font-weight:bold;
+}
+
+.cross{
+    color:red;
+    font-weight:bold;
+}
